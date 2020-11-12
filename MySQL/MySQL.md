@@ -155,11 +155,11 @@ DBMS(数据库管理软件)
 2. 修改表
 
    ```sql
-   ALERT TABLE [oldname] RENAME AS [newname] --修改表名
-   ALERT TABLE [tablename] ADD [fieldname] [type] --添加字段
-   ALERT TABLE [tablename] MODIFY [fieldname] [type] --修改表字段（修改约束）
-   ALERT TABLE [tablename] CHANGE [oldfieldname] [newfieldname] [type] --字段重命名
-   ALERT TABLE [tablename] DROP [fieldname] --删除字段
+   ALTER TABLE [oldname] RENAME AS [newname] --修改表名
+   ALTER TABLE [tablename] ADD COLUMN [fieldname] [type] [constraint] [comment] --添加字段
+   ALTER TABLE [tablename] MODIFY [fieldname] [type] --修改表字段（修改约束）
+   ALTER TABLE [tablename] CHANGE [oldfieldname] [newfieldname] [type] --字段重命名
+   ALTER TABLE [tablename] DROP [fieldname] --删除字段
    DROP TABLE IF EXISTS [tablename] -- 删除表
    ```
 
