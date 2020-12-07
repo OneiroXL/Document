@@ -256,7 +256,13 @@ DML语言：数据库操作语言
   */
   ```
 
+* 查询并插入
 
+  ```sql
+  INSERT INTO [tablename1] (field,field,...) SELECT value,value... FROM [tablename2]
+  ```
+
+  
 
 > 2.5 DQL(Data Query Language) 语言 
 
