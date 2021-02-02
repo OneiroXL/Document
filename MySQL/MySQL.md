@@ -437,5 +437,70 @@ DML语言：数据库操作语言
   SELECT VERSION()
   ```
 
+* 聚合函数
+
+  | 函数名称 | 描述     |
+  | -------- | -------- |
+  | COUNT()  | 计数     |
+  | SUM()    | 求和     |
+  | AVG()    | 求平均   |
+  | MAX()    | 求最大值 |
+  | MIN()    | 求最小值 |
+  | ......   |          |
+  | .......  |          |
+
+  ```sql
+  --三个都能总统计表中的数据
+  SELECT COUNT([field])--COUNT(字段) 会忽略所有的NULL值
+  SELECT COUNT(*) --COUNT(字段) 不会忽略NULL值 本质 计算行数
+  SELECT COUNT(1) --COUNT(字段) 不会忽略NULL值 本质 计算行数
+  
+  SELECT SUM([field]) FROM [tablename]
+  SELECT AVG([field]) FROM [tablename]
+  SELECT MAX([field]) FROM [tablename]
+  SELECT MIN([field]) FROM [tablename]
+  ```
+
+  
+
+> 2.7 数据库级别的MD5加密
+
+**说明**：主要是增强算法的复杂度，是一种信息摘要算法 是不可逆的
+
+```sql
+CREATE TABLE `testmd5`(
+	`ID` INT(4) NOT NULL,
+	`Name` VARCHAR(20) NOT NULL,
+	`Password` VARCHAR(50) NOT NULL,
+	PRIMARY KEY(`ID`)
+)ENGINE = INNODB DEFAULT CHARSET = utf8;
+
+-- 明文
+INSERT INTO testmd5 VALUES (1,'zxl','123456');
+
+-- 加密
+UPDATE `testmd5` SET `Password` = MD5(`Password`);
+```
+
+
+
+> 2.8 事务
+
+**事务原则**：ACID原则  原子性、一致性、隔离性，持久性 （脏读，幻读）
+
+* 原子性
+
+  要么都成功，要么都失败
+
+* 一致性
+
+  事务前后的数据完整性要保持一致
+
+* 隔离性
+
+  事务一旦
+
+* 持久性
+
   
 
